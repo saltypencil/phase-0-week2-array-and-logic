@@ -3,6 +3,30 @@ Diberikan sebuah function targetTerdekat(arr) yang menerima satu parameter berup
 */
 function targetTerdekat(arr) {
   // you can only write your code here!
+   let posisiO = -1;
+    let jarak = Infinity;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === "o") {
+            posisiO = i;
+        }
+    }
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === "x") {
+            let selisih = Math.abs(i - posisiO);
+
+            if (selisih < jarak) {
+                jarak = selisih;
+            }
+        }
+    }
+
+    if (jarak === Infinity) {
+        return 0;
+    }
+
+    return jarak;
 }
 
 // TEST CASES
